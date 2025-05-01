@@ -1,0 +1,453 @@
+/* General Reset and Base */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body, html {
+  height: 100%;
+  font-family: 'Open Sans', sans-serif;
+  background: #0a0a0a;
+  color: #d3d3d3;
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* Background pollution image with overlay and fade-in */
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url('https://res.cloudinary.com/dphudihil/image/upload/v1745830125/WhatsApp_Image_2025-03-29_at_01.33.13_3592c61b_ndmlsi.jpg') no-repeat center center/cover;
+  opacity: 0;
+  animation: fadeInBackground 2s forwards;
+  z-index: -2;
+  filter: brightness(0.3) contrast(0.7);
+  pointer-events: none;
+}
+
+body::after {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(180deg, #1a1a1a 0%, #0a0a0a 100%);
+  opacity: 0.85;
+  z-index: -1;
+  pointer-events: none;
+}
+
+@keyframes fadeInBackground {
+  to {
+    opacity: 1;
+  }
+}
+
+/* Container */
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.orange-text {
+  color: #ff8c00;
+}
+
+/* Header */
+#header {
+  position: fixed;
+  background-color: black;
+  top: 0;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  backdrop-filter: saturate(180%) blur(10px);
+  z-index: 1000;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.7);
+}
+
+.header-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 60px;
+}
+
+/* Logo */
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo svg {
+  stroke: #ff8c00;
+  fill: none;
+}
+
+.logo img {
+  height: 40px;
+  width: auto;
+  object-fit: contain;
+}
+
+.logo-text {
+  font-family: 'Poppins', 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-size: 1.5rem;
+  color: #fff;
+  user-select: none;
+}
+
+/* Navigation */
+#nav {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  position: relative;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 30px;
+}
+
+.nav-links li a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 600;
+  font-family: 'Poppins', 'Montserrat', sans-serif;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.nav-links li a:hover,
+.nav-links li a:focus {
+  color: #ff8c00;
+  transform: scale(1.1);
+  outline: none;
+}
+
+/* Search bar */
+.search-bar {
+  padding: 6px 12px;
+  border-radius: 20px;
+  border: 1.5px solid #ff8c00;
+  outline: none;
+  font-size: 0.9rem;
+  width: 150px;
+  transition: box-shadow 0.3s ease;
+}
+
+.search-bar:focus {
+  box-shadow: 0 0 8px #ff8c00;
+}
+
+/* Log In button */
+.login-btn {
+  background-color: #ff8c00;
+  border: none;
+  border-radius: 20px;
+  padding: 6px 14px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.login-btn svg {
+  fill: #fff;
+}
+
+.login-btn:hover,
+.login-btn:focus {
+  background-color: #e67600;
+  transform: scale(1.1);
+  outline: none;
+}
+
+/* Hamburger menu - hidden on desktop */
+#hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 25px;
+  height: 20px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  z-index: 1100;
+}
+
+#hamburger .bar {
+  width: 100%;
+  height: 3px;
+  background-color: #fff;
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+
+/* Hero Section */
+#hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding-top: 80px;
+  text-align: left;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-container {
+  max-width: 700px;
+  padding: 20px;
+  color: #d3d3d3;
+  margin-left: 40px;
+}
+
+/* Headings */
+.main-headline {
+  font-family: 'Poppins', 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-size: 3.5rem;
+  color: #fff;
+  text-transform: uppercase;
+  margin-bottom: 0.3em;
+  opacity: 1;
+}
+
+.subheadline {
+  font-family: 'Poppins', 'Montserrat', sans-serif;
+  font-weight: 900;
+  font-size: 18px;
+  color: #ff8c00;
+  text-transform: uppercase;
+  margin-bottom: 1em;
+  opacity: 0;
+}
+
+.subheadline:hover {
+  text-shadow:
+    0 0 5px #ff8c00,
+    0 0 10px #ff8c00,
+    0 0 20px #ff8c00,
+    0 0 40px #ff8c00;
+  cursor: pointer;
+}
+
+/* Paragraphs */
+.fact-paragraph {
+  font-variant: small-caps;
+  color: #ff8c00;
+  letter-spacing: 0.05em;
+  margin-bottom: 1em;
+  font-size: 1.2rem;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.info-paragraph {
+  color: #d3d3d3;
+  line-height: 1.6;
+  font-size: 18px;
+  margin-bottom: 2em;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.info-paragraph strong {
+  font-weight: 700;
+  color: #ff8c00;
+  transition: text-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+#para2 strong:hover {
+  text-shadow:
+    0 0 5px #ff8c00,
+    0 0 10px #ff8c00,
+    0 0 20px #ff8c00,
+    0 0 40px #ff8c00;
+}
+
+/* CTA Button */
+.cta-btn {
+  font-family: 'Poppins', 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: #fff;
+  background: transparent;
+  border: 2px solid #ff8c00;
+  border-radius: 30px;
+  padding: 12px 36px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
+  margin-bottom: 1.5em;
+}
+
+.cta-btn:hover,
+.cta-btn:focus {
+  background-color: #ff8c00;
+  color: #fff;
+  transform: scale(1.05);
+  outline: none;
+}
+
+/* Tagline */
+.tagline {
+  font-size: 0.85rem;
+  color: #d3d3d3;
+  text-align: center;
+  opacity: 0.7;
+}
+
+/* Animations */
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Orange color and glow effect on hover for "IS A SILENT POLLUTER" */
+.orange-highlight {
+  color: #ff8c00;
+  cursor: pointer;
+  transition: text-shadow 0.3s ease;
+}
+
+.orange-highlight.glow {
+  animation: glowAnimation 1.5s infinite alternate;
+}
+
+@keyframes glowAnimation {
+  from {
+    text-shadow:
+      0 0 5px #ff8c00,
+      0 0 10px #ff8c00,
+      0 0 20px #ff8c00,
+      0 0 40px #ff8c00;
+  }
+  to {
+    text-shadow: none;
+  }
+}
+
+.orange-highlight:hover {
+  text-shadow:
+    0 0 5px #ff8c00,
+    0 0 10px #ff8c00,
+    0 0 20px #ff8c00,
+    0 0 40px #ff8c00;
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Scroll-triggered fade and slide up */
+.fade-in-up {
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .main-headline {
+    font-size: 2.5rem;
+  }
+  .subheadline {
+    font-size: 3rem;
+  }
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    background: rgba(10, 10, 10, 0.95);
+    position: fixed;
+    top: 60px;
+    right: 0;
+    width: 200px;
+    height: calc(100% - 60px);
+    padding-top: 20px;
+    gap: 20px;
+    z-index: 1050;
+  }
+  .nav-links.active {
+    display: flex;
+  }
+  #hamburger {
+    display: flex;
+  }
+  .search-bar {
+    width: 100px;
+  }
+.search-login {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.search-bar {
+  width: 120px;
+  padding: 6px 10px;
+  border-radius: 8px;
+  height: 36px;
+  font-size: 0.9rem;
+}
+
+.login-btn {
+  padding: 6px 10px;
+  border-radius: 8px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 10px;
+}
+  .login-btn {
+    padding: 6px 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .main-headline {
+    font-size: 1.8rem;
+  }
+  .subheadline {
+    font-size: 2.2rem;
+  }
+  .cta-btn {
+    width: 100%;
+    padding: 14px 0;
+  }
+  .search-bar {
+    width: 100%;
+  }
+  .search-login {
+    flex-direction: column;
+    gap: 10px;
+  }
+}

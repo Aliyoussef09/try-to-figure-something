@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>HOMIE Home Page</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Open+Sans&family=Poppins:wght@700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+</head>
+<body>
+  <header id="header">
+    <div class="container header-container">
+      <div class="logo" id="logo">
+        <img src="https://res.cloudinary.com/dphudihil/image/upload/v1745804346/H-removebg-preview_ibozc1.png" alt="HOMIE logo" />
+        <span class="logo-text">HOMIE</span>
+      </div>
+      <nav id="nav">
+        <ul class="nav-links">
+          <li><a href="Home.html">Home</a></li>
+          <li><a href="About.html">About Us</a></li>
+          <li><a href="Products.html">Products</a></li>
+          <li><a href="Contact.html">Contact</a></li>
+        </ul>
+        <button id="hamburger" aria-label="Toggle navigation menu" aria-expanded="false">
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <main id="hero">
+    <div class="container hero-container">
+      <h1 class="main-headline" id="main-headline" data-text="YOUR HOME IS A SILENT POLLUTER"></h1>
+      <h2 class="subheadline" id="subheadline" data-text="Did you know? In 2020, buildings accounted for 39% of global CO2 emissions, making homes a major contributor to pollution.">Did you know? In 2020, buildings accounted for 39% of global CO2 emissions, making homes a major contributor to pollution.</h2>
+      <p class="info-paragraph" id="para1" data-text="For decades, traditional homes have consumed excessive energy, allowed outdoor pollution to seep indoors, and struggled to maintain a comfortable temperature naturally.">
+        For decades, traditional homes have consumed excessive energy, allowed outdoor pollution to seep indoors, and struggled to maintain a comfortable temperature naturally.
+      </p>
+      <p class="info-paragraph" id="para2" data-text="The consequences? Rising electricity bills, poor indoor air quality, and a growing environmental impact.">
+        The consequences? <strong>Rising electricity bills, poor indoor air quality, and a growing environmental impact.</strong>
+      </p>
+      <button class="cta-btn" id="cta-btn">SEE THE SOLUTION</button>
+      <p class="tagline">With HOMIE, small changes at your home create a big impact on our planet.</p>
+    </div>
+  </main>
+  <div id="dust-particles"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>

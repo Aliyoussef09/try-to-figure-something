@@ -1,0 +1,476 @@
+/* Reset and base styles */
+body, html {
+  margin: 0;
+  padding: 0;
+  background-color: #000000;
+  color: #ffffff;
+  font-family: 'Roboto', sans-serif;
+  overflow-x: hidden;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 20px;
+}
+
+/* Section styles */
+.smart-home-section {
+  position: relative;
+  width: 100%;
+  background: #000000;
+  background-image: radial-gradient(circle at center, #222222 1px, transparent 1px);
+  background-size: 40px 40px;
+  padding: 50px 20px;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+/* Heading wrapper with vertical line */
+.heading-wrapper {
+  display: flex;
+  align-items: center;
+  margin-bottom: 30px;
+  position: relative;
+}
+
+.vertical-line {
+  width: 2px;
+  background-color: #ff7b00; /* Bright orange */
+  height: 5px; /* Reduced height for a sleeker look */
+  margin-right: 12px;
+  transform-origin: top;
+  transition: height 0.3s ease-in-out;
+}
+
+
+/* Headings */
+.headings {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: left;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 900;
+  color: #ffffff;
+  user-select: none;
+}
+
+.headings h1 {
+  margin: 0;
+  line-height: 1.1;
+  text-transform: uppercase;
+  font-weight: 900;
+  font-size: 2.5rem;
+  opacity: 0;
+  transform: translateY(20px);
+  animation-fill-mode: forwards;
+}
+
+.headings h1.line2 {
+  color: #ff7b00;
+  margin-top: 0.1em;
+}
+
+/* Description paragraph */
+.description {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
+  font-size: 18px;
+  color: #ffffff;
+  max-width: 700px;
+  margin-bottom: 40px;
+  opacity: 0;
+  transform: translateX(20px);
+  animation-fill-mode: forwards;
+}
+
+.description .highlight {
+  color: #ff7b00;
+  font-weight: 700;
+}
+
+/* Features list */
+.features-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 50px 0;
+  max-width: 700px;
+}
+
+.features-list li {
+  display: flex;
+  align-items: center;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
+  font-size: 18px;
+  color: #ffffff;
+  margin-bottom: 20px;
+  opacity: 0;
+  transform: translateX(-20px);
+  animation-fill-mode: forwards;
+  cursor: default;
+  transition: transform 0.3s ease-in-out, filter 0.3s ease-in-out;
+}
+
+.features-list li:hover {
+  transform: scale(1.05);
+  filter: drop-shadow(0 0 6px #ff7b00);
+}
+
+.features-list li .icon {
+  flex-shrink: 0;
+  width: 24px;
+  height: 24px;
+  margin-right: 10px;
+  stroke: #ff7b00;
+  transition: transform 0.3s ease-in-out, filter 0.3s ease-in-out;
+}
+
+.features-list li:hover .icon {
+  transform: scale(1.05);
+  filter: drop-shadow(0 0 6px #ff7b00);
+}
+
+/* Closing line */
+.closing-line {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
+  font-size: 18px;
+  color: #ffffff;
+  text-align: center;
+  max-width: 700px;
+  margin: 0 auto;
+  opacity: 0;
+  transform: scale(0.8);
+  animation-fill-mode: forwards;
+  user-select: none;
+}
+
+.closing-line strong {
+  font-weight: 700;
+}
+
+/* Animations */
+@keyframes slideUpFadeIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInRight {
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeInLeft {
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes zoomInFade {
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .heading-wrapper {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .vertical-line {
+    height: 60px;
+    margin: 0 0 15px 0;
+  }
+
+  .headings {
+    text-align: center;
+  }
+
+  .headings h1 {
+    font-size: 1.8rem;
+  }
+
+  .description,
+  .features-list,
+  .closing-line {
+    text-align: center;
+    max-width: 100%;
+  }
+
+  .features-list li {
+    justify-content: center;
+  }
+}
+/* Header */
+#header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background: rgba(255, 0, 0, 0.8);
+  backdrop-filter: saturate(180%) blur(10px);
+  z-index: 1000;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.7);
+}
+
+.header-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 60px;
+}
+
+/* Logo */
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo svg {
+  stroke: #ff8c00;
+  fill: none;
+}
+
+.logo img {
+  height: 40px;
+  width: auto;
+  object-fit: contain;
+}
+
+.logo-text {
+  font-family: 'Poppins', 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-size: 1.5rem;
+  color: #fff;
+  user-select: none;
+}
+
+/* Navigation */
+#nav {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  position: relative;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 30px;
+}
+
+.nav-links li a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 600;
+  font-family: 'Poppins', 'Montserrat', sans-serif;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.nav-links li a:hover,
+.nav-links li a:focus {
+  color: #ff8c00;
+  transform: scale(1.1);
+  outline: none;
+}
+
+/* Search bar */
+.search-bar {
+  padding: 6px 12px;
+  border-radius: 20px;
+  border: 1.5px solid #ff8c00;
+  outline: none;
+  font-size: 0.9rem;
+  width: 150px;
+  transition: box-shadow 0.3s ease;
+}
+
+.search-bar:focus {
+  box-shadow: 0 0 8px #ff8c00;
+}
+
+/* Log In button */
+.login-btn {
+  background-color: #ff8c00;
+  border: none;
+  border-radius: 20px;
+  padding: 6px 14px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.login-btn svg {
+  fill: #fff;
+}
+
+.login-btn:hover,
+.login-btn:focus {
+  background-color: #e67600;
+  transform: scale(1.1);
+  outline: none;
+}
+
+/* Hamburger menu - hidden on desktop */
+#hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 25px;
+  height: 20px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  z-index: 1100;
+}
+
+#hamburger .bar {
+  width: 100%;
+  height: 3px;
+  background-color: #fff;
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+
+/* Hero Section */
+#hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding-top: 80px;
+  text-align: left;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-container {
+  max-width: 700px;
+  padding: 20px;
+  color: #d3d3d3;
+  margin-left: 40px;
+}
+/* Header */
+#header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  backdrop-filter: saturate(180%) blur(10px);
+  z-index: 1000;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.7);
+}
+
+.header-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 60px;
+}
+
+/* Logo */
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo svg {
+  stroke: #ff8c00;
+  fill: none;
+}
+
+.logo img {
+  height: 40px;
+  width: auto;
+  object-fit: contain;
+}
+
+.logo-text {
+  font-family: 'Poppins', 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-size: 1.5rem;
+  color: #fff;
+  user-select: none;
+}
+
+/* Navigation */
+#nav {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  position: relative;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 30px;
+}
+
+.nav-links li a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 600;
+  font-family: 'Poppins', 'Montserrat', sans-serif;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.nav-links li a:hover,
+.nav-links li a:focus {
+  color: #ff8c00;
+  transform: scale(1.1);
+  outline: none;
+}
+
+/* Search bar */
+.search-bar {
+  padding: 6px 12px;
+  border-radius: 20px;
+  border: 1.5px solid #ff8c00;
+  outline: none;
+  font-size: 0.9rem;
+  width: 150px;
+  transition: box-shadow 0.3s ease;
+}
+
+.search-bar:focus {
+  box-shadow: 0 0 8px #ff8c00;
+}
+
+/* Log In button */
+.login-btn {
+  background-color: #ff8c00;
+  border: none;
+  border-radius: 20px;
+  padding: 6px 14px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.login-btn svg {
+  fill: #fff;
+}
+
+.login-btn:hover,
+.login-btn:focus {
+  background-color: #e67600;
+  transform: scale(1.1);
+  outline: none;
+}

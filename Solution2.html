@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Modern Cards Section</title>
+  <!-- Google Fonts Poppins and Open Sans -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="Solution2.css" />
+</head>
+<body>
+<header id="header">
+  <div class="container header-container">
+    <div class="logo" id="logo">
+      <img src="https://res.cloudinary.com/dphudihil/image/upload/v1745804346/H-removebg-preview_ibozc1.png" alt="HOMIE logo" />
+      <span class="logo-text">HOMIE</span>
+    </div>
+    <nav id="nav">
+      <ul class="nav-links">
+        <li><a href="#">Home</a></li>
+        <li><a href="#">About Us</a></li>
+        <li><a href="#">Products</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+      <button id="hamburger" aria-label="Toggle navigation menu" aria-expanded="false">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </button>
+    </nav>
+  </div>
+</header>
+  <div id="loading-spinner" class="loading-spinner"></div>
+
+  <div class="decorative-lines-container" aria-hidden="true">
+    <svg class="decorative-line line1" viewBox="0 0 200 20" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" >
+      <path d="M0 10 Q50 0 100 10 T200 10" stroke="#ff7b00" stroke-width="2" fill="none" />
+    </svg>
+    <svg class="decorative-line line2" viewBox="0 0 200 20" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" >
+      <path d="M0 12 Q50 22 100 12 T200 12" stroke="#ff7b00" stroke-width="2" fill="none" />
+    </svg>
+    <svg class="decorative-line line3" viewBox="0 0 200 20" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" >
+      <path d="M0 8 Q50 -2 100 8 T200 8" stroke="#ff7b00" stroke-width="2" fill="none" />
+    </svg>
+  </div>
+
+  <nav class="navbar" id="navbar">
+    <div class="navbar-container">
+      <a href="#" class="logo"></a>
+      <ul class="nav-links">
+        <li><a href="#cards-section">Cards</a></li>
+        <li><a href="#products-section">Products</a></li>
+        <li><a href="#contact-section">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <section class="cards-section" id="cards-section">
+    <div class="cards-container">
+      <article class="card" data-aos-delay="0">
+        <div class="card-image-wrapper">
+          <img src="https://res.cloudinary.com/dphudihil/image/upload/v1745834685/WhatsApp_Image_2025-03-29_at_01.33.14_c343ec0c_iubant.jpg" alt="Green rooftop" class="card-image" />
+        </div>
+        <div class="card-content">
+          <p class="card-heading">Why?</p>
+          <p class="card-text">
+            Green rooftops reduce urban heat, improve air quality, and provide natural insulation.
+          </p>
+          <p class="card-heading">How?</p>
+          <p class="card-text">
+            By installing vegetation layers on rooftops with proper waterproofing and drainage systems.
+          </p>
+        </div>
+        <div class="card-popup">
+          <p>This is a pop-up for the first card.</p>
+        </div>
+      </article>
+      <article class="card" data-aos-delay="150">
+        <div class="card-image-wrapper">
+          <img src="https://res.cloudinary.com/dphudihil/image/upload/v1745834353/WhatsApp_Image_2025-03-29_at_01.33.13_208eaaaf_komt7t.jpg" alt="Sustainable construction" class="card-image" />
+        </div>
+        <div class="card-content">
+          <p class="card-heading">Why?</p>
+          <p class="card-text">
+            Sustainable construction minimizes environmental impact and promotes resource efficiency.
+          </p>
+          <p class="card-heading">How?</p>
+          <p class="card-text">
+            Using eco-friendly materials, energy-efficient designs, and waste reduction techniques.
+          </p>
+        </div>
+        <div class="card-popup">
+          <p>This is a pop-up for the second card.</p>
+        </div>
+      </article>
+      <article class="card" data-aos-delay="300">
+        <div class="card-image-wrapper">
+          <img src="https://res.cloudinary.com/dphudihil/image/upload/v1745835119/WhatsApp_Image_2025-03-29_at_01.33.15_390dfde8_os81og.jpg" alt="Airflow diagram" class="card-image" />
+        </div>
+        <div class="card-content">
+          <p class="card-heading">Why?</p>
+          <p class="card-text">
+            Proper airflow improves indoor air quality and energy efficiency.
+          </p>
+          <p class="card-heading">How?</p>
+          <p class="card-text">
+            Designing ventilation systems that optimize air circulation and reduce pollutants.
+          </p>
+        </div>
+        <div class="card-popup">
+          <p>This is a pop-up for the third card.</p>
+        </div>
+      </article>
+    </div>
+    <button class="see-products-btn" aria-label="See the products">
+      <svg class="btn-arrow" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+        <path d="M12 5v14M19 12l-7 7-7-7" />
+      </svg>
+      SEE THE PRODUCTS
+    </button>
+  </section>
+
+  <script src="Solution2.js"></script>
+</body>
+</html>

@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Complete Your Order</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="Contact.css" />
+
+  <!-- EmailJS SDK -->
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+  <script>
+    (function(){
+      emailjs.init('1d1AogCesFp1u8FUP');
+    })();
+  </script>
+</head>
+<body>
+  <main class="order-container">
+    <header class="order-header" style="background-color: #ff6600; color: white; padding: 30px 20px; border-radius: 12px;">
+      <h1 class="order-title">Complete Your Order</h1>
+      <p class="order-subtitle">Please select your products, adjust quantities, and provide delivery details</p>
+    </header>
+
+    <form id="order-form" class="order-form" style="margin-top: 30px; max-width: 700px; margin-left: auto; margin-right: auto;">
+      <section class="personal-info" style="margin-bottom: 40px;">
+        <h2 style="font-weight: 600; font-size: 1.5rem; margin-bottom: 20px;">Personal Information</h2>
+        <div class="form-group" style="display: flex; flex-direction: column; gap: 15px;">
+          <input type="text" id="fullName" name="fullName" placeholder="Full Name" required class="order-input" />
+          <input type="email" id="email" name="email" placeholder="Email Address" required class="order-input" />
+          <input type="tel" id="phone" name="phone" placeholder="Phone Number" required class="order-input" />
+          <input type="text" id="city" name="city" placeholder="City/Region" required class="order-input" />
+          <input type="text" id="address" name="address" placeholder="Detailed Address (Street, Building, Apartment, etc.)" required class="order-input" />
+        </div>
+      </section>
+
+      <section class="product-selection" style="margin-bottom: 40px;">
+        <h2 style="font-weight: 600; font-size: 1.5rem; margin-bottom: 20px;">Select Products</h2>
+        <div class="products-list" style="display: flex; flex-direction: column; gap: 15px;">
+          <div class="product-item">
+            <label class="product-checkbox">
+              <input type="checkbox" name="products" value="SMART SOLAR PANEL SYSTEM" />
+              SMART SOLAR PANEL SYSTEM
+            </label>
+            <div class="quantity-control">
+              <input type="number" name="quantity_solar" min="1" value="1" class="quantity-input" />
+            </div>
+          </div>
+          <div class="product-item">
+            <label class="product-checkbox">
+              <input type="checkbox" name="products" value="SMART AIR PURIFYING SYSTEM" />
+              SMART AIR PURIFYING SYSTEM
+            </label>
+            <div class="quantity-control">
+              <input type="number" name="quantity_air" min="1" value="1" class="quantity-input" />
+            </div>
+          </div>
+          <div class="product-item">
+            <label class="product-checkbox">
+              <input type="checkbox" name="products" value="SMART TRIBOELECTRIC GENERATOR FLOOR" />
+              SMART TRIBOELECTRIC GENERATOR FLOOR
+            </label>
+            <div class="quantity-control">
+              <input type="number" name="quantity_tribo" min="1" value="1" class="quantity-input" />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div style="text-align: center;">
+        <button type="submit" id="submitOrder" class="submit-button">Submit Order</button>
+      </div>
+    </form>
+
+    <div id="success-message" style="display:none; text-align:center; margin-top: 30px;">
+      <svg id="checkmark" xmlns="http://www.w3.org/2000/svg" width="80" height="80" viewBox="0 0 52 52" style="stroke: #ff6600; stroke-width: 4; fill: none; stroke-linecap: round; stroke-linejoin: round; margin: 0 auto;">
+        <circle cx="26" cy="26" r="25" style="stroke-dasharray: 166; stroke-dashoffset: 166; animation: stroke 0.6s forwards;"></circle>
+        <path d="M14 27l7 7 16-16" style="stroke-dasharray: 48; stroke-dashoffset: 48; animation: stroke 0.3s 0.6s forwards;"></path>
+      </svg>
+      <p style="font-size: 1.3rem; color: #333; margin-top: 15px;">Order submitted successfully! 🎉</p>
+    </div>
+  </main>
+
+  <script>
+    // Contact.js code here directly
+    document.getElementById('order-form').addEventListener('submit', function(event) {
+      event.preventDefault();
+      const orderForm = this;
+      const successMessage = document.getElementById('success-message');
+
+      // Validate required fields
+      if (!orderForm.fullName.value.trim() ||
+          !orderForm.email.value.trim() ||
+          !orderForm.phone.value.trim() ||
+          !orderForm.city.value.trim() ||
+          !orderForm.address.value.trim()) {
+        alert('Please fill in all personal information fields.');
+        return;
+      }
+
+      // Get selected products and quantities
+      const productCheckboxes = document.querySelectorAll('.product-checkbox input[type="checkbox"]');
+      const selectedProducts = [];
+      productCheckboxes.forEach(checkbox => {
+        if (checkbox.checked) {
+          const quantityInput = checkbox.parentElement.nextElementSibling.querySelector('input[type="number"]');
+          const quantity = quantityInput.value && quantityInput.value > 0 ? quantityInput.value : 1;
+          selectedProducts.push(`${checkbox.value} (Quantity: ${quantity})`);
+        }
+      });
+
+      if (selectedProducts.length === 0) {
+        alert('Please select at least one product.');
+        return;
+      }
+
+      // Prepare EmailJS parameters
+      const templateParams = {
+        fullName: orderForm.fullName.value,
+        email: orderForm.email.value,
+        phone: orderForm.phone.value,
+        city: orderForm.city.value,
+        address: orderForm.address.value,
+        products: selectedProducts.join('\n')
+      };
+
+      // Send email
+      emailjs.send('service_mg39s0f', 'template_vlq8ygh', templateParams)
+        .then(function(response) {
+          console.log('SUCCESS!', response.status, response.text);
+          orderForm.style.display = 'none';
+          successMessage.style.display = 'flex';
+          localStorage.removeItem('contactFormData');
+        }, function(error) {
+          console.log('FAILED...', error);
+          alert('Something went wrong while sending the email. Please try again.');
+        });
+    });
+  </script>
+
+</body>
+</html>

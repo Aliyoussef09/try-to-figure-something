@@ -1,0 +1,271 @@
+/* General Reset and Fonts */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #FFFFFF;
+    color: #000000;
+}
+
+#header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: black;
+    z-index: 1000;
+}
+
+/* Section Title */
+.section-title {
+    font-family: 'Arial Black', Arial, sans-serif;
+    font-weight: 900;
+    font-size: 48px;
+    text-transform: uppercase;
+    color: #000000;
+    text-align: center;
+    margin: 40px 0 60px 0;
+}
+
+/* Products Container */
+.products-container {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    padding: 0 20px 60px 20px;
+    flex-wrap: nowrap;
+}
+
+/* Product Card */
+.product-card {
+    background-color: #FFFFFF;
+    border: 2px solid #FF6600;
+    border-radius: 12px;
+    width: 300px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    opacity: 0;
+    transform: translateY(30px);
+    height: 520px; /* fixed height for uniform card size */
+    justify-content: space-between; /* distribute content vertically */
+}
+
+/* Fade-in and slide-up animation */
+.product-card.visible {
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+/* Hover effect */
+.product-card:hover {
+    transform: scale(1.03);
+    box-shadow: 0 0 15px 3px rgba(255, 102, 0, 0.6);
+    z-index: 10;
+}
+
+/* Product Image */
+.product-image {
+    width: 100%;
+    height: 180px; /* fixed height for uniform image size */
+    object-fit: cover; /* maintain aspect ratio, cover the area */
+    border-radius: 12px 12px 0 0;
+    display: block;
+}
+
+/* Product Name */
+.product-name {
+    font-family: 'Arial Black', Arial, sans-serif;
+    font-weight: 700;
+    font-size: 24px;
+    color: #003366;
+    text-transform: uppercase;
+    text-align: center;
+    margin: 15px 15px 10px 15px; /* reduce top margin for better alignment */
+    min-height: 60px; /* fixed height to align titles */
+}
+
+/* Product Description */
+.product-description {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    color: #555555;
+    text-align: center;
+    margin: 0 15px 20px 15px;
+    min-height: 80px; /* fixed height to align descriptions */
+}
+
+/* Price Info Section */
+.price-info {
+    background-color: #FF6600;
+    width: 100%;
+    border-radius: 0 0 12px 12px;
+    padding: 15px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    cursor: default;
+}
+
+/* Price Text */
+.price {
+    font-family: 'Arial Black', Arial, sans-serif;
+    font-weight: 900;
+    font-size: 24px;
+    color: #FFFFFF;
+}
+
+/* Info Button */
+.info-button {
+    background-color: #003366;
+    color: #FFFFFF;
+    border: none;
+    border-radius: 50%;
+    width: 32px;
+    height: 32px;
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 32px;
+    text-align: center;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    user-select: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+}
+
+.info-button:hover,
+.info-button:focus {
+    background-color: #002244;
+    outline: none;
+}
+
+/* Responsive */
+@media (max-width: 980px) {
+    .products-container {
+        flex-wrap: wrap;
+        gap: 20px;
+    }
+    .product-card {
+        width: 100%;
+        max-width: 320px;
+        margin: 0 auto;
+    }
+}
+/* Header */
+#header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    backdrop-filter: saturate(180%) blur(10px);
+    z-index: 1000;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.7);
+  }
+  
+  .header-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 60px;
+  }
+  
+  /* Logo */
+  .logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .logo svg {
+    stroke: #ff8c00;
+    fill: none;
+  }
+  
+  .logo img {
+    height: 40px;
+    width: auto;
+    object-fit: contain;
+  }
+  
+  .logo-text {
+    font-family: 'Poppins', 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 1.5rem;
+    color: #fff;
+    user-select: none;
+  }
+  
+  /* Navigation */
+  #nav {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    position: relative;
+  }
+  
+  .nav-links {
+    list-style: none;
+    display: flex;
+    gap: 30px;
+  }
+  
+  .nav-links li a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 600;
+    font-family: 'Poppins', 'Montserrat', sans-serif;
+    transition: transform 0.3s ease, color 0.3s ease;
+  }
+  
+  .nav-links li a:hover,
+  .nav-links li a:focus {
+    color: #ff8c00;
+    transform: scale(1.1);
+    outline: none;
+  }
+  
+  /* Search bar */
+  .search-bar {
+    padding: 6px 12px;
+    border-radius: 20px;
+    border: 1.5px solid #ff8c00;
+    outline: none;
+    font-size: 0.9rem;
+    width: 150px;
+    transition: box-shadow 0.3s ease;
+  }
+  
+  .search-bar:focus {
+    box-shadow: 0 0 8px #ff8c00;
+  }
+  
+  /* Log In button */
+  .login-btn {
+    background-color: #ff8c00;
+    border: none;
+    border-radius: 20px;
+    padding: 6px 14px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+  }
+  
+  .login-btn svg {
+    fill: #fff;
+  }
+  
+  .login-btn:hover,
+  .login-btn:focus {
+    background-color: #e67600;
+    transform: scale(1.1);
+    outline: none;
+  }
+  

@@ -1,0 +1,651 @@
+/* Import Poppins and Open Sans fonts are done in index.html */
+
+/* Global styles */
+body {
+  margin: 0;
+  background-color: #ffffff;
+  font-family: 'Open Sans', sans-serif;
+  color: #555555;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  scroll-behavior: smooth;
+  transition: background-color 0.3s ease;
+}
+
+/* Navbar styles */
+.navbar {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  background-color: transparent;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease, padding 0.3s ease;
+  z-index: 1000;
+  box-shadow: none;
+  padding: 20px 0;
+}
+
+.navbar.scrolled {
+  background-color: #000000;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  padding: 10px 0;
+}
+
+/* Navbar container */
+.navbar-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Logo */
+.logo {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
+  font-size: 24px;
+  color: #ff7b00;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+/* Nav links */
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 24px;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-links li a {
+  color: #ffffff;
+  text-decoration: none;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 400;
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+.nav-links li a::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: -4px;
+  left: 50%;
+  background-color: #ff7b00;
+  transition: width 0.3s ease, left 0.3s ease;
+}
+
+.nav-links li a:hover {
+  color: #ff7b00;
+}
+
+.nav-links li a:hover::after {
+  width: 100%;
+  left: 0;
+}
+
+/* Cards Section */
+.cards-section {
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  scroll-snap-type: y mandatory;
+  background-color: #ffffff;
+  animation: fadeSlideUp 0.8s ease forwards;
+}
+
+/* Container for cards grid */
+.cards-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  width: 100%;
+  max-width: 1200px;
+  margin-bottom: 40px;
+}
+
+/* Card styles */
+.card {
+  background-color: #ffffff;
+  border-radius: 20px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  cursor: pointer;
+  transform-origin: center center;
+  transition: all 0.35s ease-in-out;
+  scroll-snap-align: start;
+  will-change: transform, box-shadow;
+  opacity: 0;
+  transform: translateY(20px);
+  max-height: 440px;
+}
+
+.card:hover {
+  transform: translateY(-10px) scale(1.02);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.2);
+}
+
+.card:hover .card-image {
+  transform: scale(1.05);
+  filter: brightness(1.1);
+  transition: transform 0.35s ease-in-out, filter 0.35s ease-in-out;
+}
+
+/* Card image wrapper to enable parallax */
+.card-image-wrapper {
+  position: relative;
+  height: 160px;
+  overflow: hidden;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+}
+
+/* Card image */
+.card-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  transition: transform 0.35s ease-in-out;
+  will-change: transform;
+}
+
+/* Card content */
+.card-content {
+  padding: 16px 16px;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  text-align: left;
+  position: relative;
+  transition: letter-spacing 0.3s ease;
+}
+
+/* Pop-up inside card */
+.card-popup {
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%) translateY(10px);
+  background-color: rgba(0, 0, 0, 0.8);
+  color: #fff;
+  padding: 10px 15px;
+  border-radius: 10px;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  z-index: 10;
+}
+
+.card:hover .card-popup {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateX(-50%) translateY(0);
+}
+
+/* Headings "Why?" and "How?" */
+.card-heading {
+  font-weight: 700;
+  font-size: 16px;
+  color: #ff7b00;
+  margin: 0 0 8px 0;
+  font-family: 'Poppins', sans-serif;
+  letter-spacing: 0.05em;
+  animation: letterSpacing 0.6s ease forwards;
+}
+
+/* Body text */
+.card-text {
+  font-weight: 300;
+  font-size: 15px;
+  color: #555555;
+  margin: 0 0 16px 0;
+  line-height: 1.4;
+  font-family: 'Open Sans', sans-serif;
+}
+
+/* Button styles */
+.see-products-btn {
+  background: linear-gradient(to right, #ff7b00, #ff9900);
+  border: none;
+  border-radius: 20px;
+  color: #ffffff;
+  font-weight: 700;
+  font-family: 'Poppins', sans-serif;
+  font-size: 16px;
+  text-transform: uppercase;
+  padding: 16px 48px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  transition: all 0.3s ease-in-out;
+  outline-offset: 4px;
+  user-select: none;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+}
+
+.see-products-btn:hover {
+  background: linear-gradient(to right, #e66a00, #cc7f00);
+  transform: scale(1.05);
+  box-shadow: 0 8px 30px rgba(255, 123, 0, 0.7);
+  position: relative;
+  overflow: hidden;
+}
+
+.see-products-btn:active::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.3);
+  animation: ripple 0.6s linear;
+  border-radius: 20px;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+}
+
+/* Button arrow icon */
+.btn-arrow {
+  stroke: #fff;
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+}
+
+/* Responsive layout */
+@media (max-width: 1024px) {
+  .cards-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .cards-container {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Animations for fade-in and slide-up */
+@keyframes fadeSlideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Letter spacing animation */
+@keyframes letterSpacing {
+  from {
+    letter-spacing: 0;
+  }
+  to {
+    letter-spacing: 0.05em;
+  }
+}
+
+/* Ripple effect */
+@keyframes ripple {
+  0% {
+    transform: scale(0);
+    opacity: 0.6;
+  }
+  100% {
+    transform: scale(2.5);
+    opacity: 0;
+  }
+}
+
+/* Utility class to trigger animation */
+.animate {
+  animation: fadeSlideUp 0.6s forwards;
+}
+
+/* Decorative moving orange lines */
+.decorative-lines-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 0;
+}
+
+.decorative-line {
+  position: absolute;
+  width: 200%;
+  height: 20px;
+  opacity: 0.15;
+  filter: drop-shadow(0 0 4px #ff7b00);
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+}
+
+.line1 {
+  top: 20%;
+  animation-name: moveRightLeft;
+  animation-duration: 20s;
+  animation-direction: alternate;
+}
+
+.line2 {
+  top: 50%;
+  animation-name: moveLeftRight;
+  animation-duration: 15s;
+  animation-direction: alternate;
+}
+
+.line3 {
+  top: 80%;
+  animation-name: moveRightLeft;
+  animation-duration: 18s;
+  animation-direction: alternate;
+}
+
+@keyframes moveRightLeft {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes moveLeftRight {
+  0% {
+    transform: translateX(-50%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+  .decorative-line {
+    opacity: 0.1;
+    animation-duration: 30s !important;
+  }
+}
+/* Header */
+#header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background: rgba(255, 0, 0, 0.8);
+  backdrop-filter: saturate(180%) blur(10px);
+  z-index: 1000;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.7);
+}
+
+.header-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 60px;
+}
+
+/* Logo */
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo svg {
+  stroke: #ff8c00;
+  fill: none;
+}
+
+.logo img {
+  height: 40px;
+  width: auto;
+  object-fit: contain;
+}
+
+.logo-text {
+  font-family: 'Poppins', 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-size: 1.5rem;
+  color: #fff;
+  user-select: none;
+}
+
+/* Navigation */
+#nav {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  position: relative;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 30px;
+}
+
+.nav-links li a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 600;
+  font-family: 'Poppins', 'Montserrat', sans-serif;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.nav-links li a:hover,
+.nav-links li a:focus {
+  color: #ff8c00;
+  transform: scale(1.1);
+  outline: none;
+}
+
+/* Search bar */
+.search-bar {
+  padding: 6px 12px;
+  border-radius: 20px;
+  border: 1.5px solid #ff8c00;
+  outline: none;
+  font-size: 0.9rem;
+  width: 150px;
+  transition: box-shadow 0.3s ease;
+}
+
+.search-bar:focus {
+  box-shadow: 0 0 8px #ff8c00;
+}
+
+/* Log In button */
+.login-btn {
+  background-color: #ff8c00;
+  border: none;
+  border-radius: 20px;
+  padding: 6px 14px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.login-btn svg {
+  fill: #fff;
+}
+
+.login-btn:hover,
+.login-btn:focus {
+  background-color: #e67600;
+  transform: scale(1.1);
+  outline: none;
+}
+
+/* Hamburger menu - hidden on desktop */
+#hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 25px;
+  height: 20px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  z-index: 1100;
+}
+
+#hamburger .bar {
+  width: 100%;
+  height: 3px;
+  background-color: #fff;
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+
+/* Hero Section */
+#hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding-top: 80px;
+  text-align: left;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-container {
+  max-width: 700px;
+  padding: 20px;
+  color: #d3d3d3;
+  margin-left: 40px;
+}
+ /* Header */
+#header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  backdrop-filter: saturate(180%) blur(10px);
+  z-index: 1000;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.7);
+}
+
+.header-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 60px;
+}
+
+/* Logo */
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo svg {
+  stroke: #ff8c00;
+  fill: none;
+}
+
+.logo img {
+  height: 40px;
+  width: auto;
+  object-fit: contain;
+}
+
+.logo-text {
+  font-family: 'Poppins', 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-size: 1.5rem;
+  color: #fff;
+  user-select: none;
+}
+
+/* Navigation */
+#nav {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  position: relative;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 30px;
+}
+
+.nav-links li a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 600;
+  font-family: 'Poppins', 'Montserrat', sans-serif;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.nav-links li a:hover,
+.nav-links li a:focus {
+  color: #ff8c00;
+  transform: scale(1.1);
+  outline: none;
+}
+
+/* Search bar */
+.search-bar {
+  padding: 6px 12px;
+  border-radius: 20px;
+  border: 1.5px solid #ff8c00;
+  outline: none;
+  font-size: 0.9rem;
+  width: 150px;
+  transition: box-shadow 0.3s ease;
+}
+
+.search-bar:focus {
+  box-shadow: 0 0 8px #ff8c00;
+}
+
+/* Log In button */
+.login-btn {
+  background-color: #ff8c00;
+  border: none;
+  border-radius: 20px;
+  padding: 6px 14px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.login-btn svg {
+  fill: #fff;
+}
+
+.login-btn:hover,
+.login-btn:focus {
+  background-color: #e67600;
+  transform: scale(1.1);
+  outline: none;
+}

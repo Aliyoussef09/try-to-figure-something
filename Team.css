@@ -1,0 +1,324 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap');
+
+* {
+  box-sizing: border-box;
+}
+
+body, html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-family: 'Poppins', sans-serif;
+  background-color: #ffffff;
+  color: #333333;
+  scroll-behavior: smooth;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+main {
+  padding: 60px;
+  max-width: 1200px;
+  width: 100%;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+/* Heading Section */
+.heading-section {
+  margin-bottom: 40px;
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeSlideIn 1s ease forwards;
+  overflow: hidden;
+  position: relative;
+  height: 50px; /* restrict height to show partial heading */
+}
+
+.title {
+  font-weight: 700;
+  font-size: 40px;
+  margin: 0 0 10px 0;
+  font-family: 'Poppins', sans-serif;
+  transform: translateY(-20%);
+  margin: 0;
+  display: inline-block;
+  text-align: left;
+}
+
+.mission {
+  font-weight: 400;
+  font-size: 16px;
+  max-width: 700px;
+  margin: 0;
+  opacity: 0;
+  animation: fadeInSlow 2s ease forwards;
+  animation-delay: 0.5s;
+  font-family: 'Poppins', sans-serif;
+  color: #333333;
+  text-align: left;
+}
+
+/* Team Members Section */
+.team-section {
+  width: 100%;
+}
+
+.team-row {
+  display: flex;
+  justify-content: flex-start;
+  gap: 40px;
+  margin-bottom: 40px;
+  opacity: 0;
+  transform: translateY(30px);
+  animation: popIn 0.6s ease forwards;
+}
+
+.team-row#row2 {
+  animation-delay: 0.3s;
+}
+
+.team-member {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 120px;
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  border-radius: 12px;
+  padding: 20px 8px 30px 8px;
+  background: #ffffff;
+  transition: box-shadow 0.3s ease;
+}
+
+.team-member:hover {
+  box-shadow: 0 8px 16px rgba(255, 140, 0, 0.8);
+}
+
+.photo {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  background-size: cover;
+  background-position: center;
+  margin-bottom: 15px;
+  transition: transform 0.3s ease;
+  background-color: #a0d8f1; /* default sky color */
+  position: relative;
+  overflow: hidden;
+}
+
+.default-photo {
+  background-image: url('default-bg.svg');
+  background-repeat: no-repeat;
+  background-position: center bottom;
+  background-size: contain;
+}
+
+.team-member:hover .photo {
+  transform: scale(1.05);
+}
+
+.name {
+  font-weight: 700;
+  font-size: 14px;
+  margin: 0 0 5px 0;
+  color: #333333;
+  transition: color 0.3s ease;
+}
+
+.role {
+  font-weight: 400;
+  font-size: 12px;
+  color: #ff8c00;
+  margin: 0;
+  transition: color 0.3s ease;
+}
+
+.team-member:hover .name,
+.team-member:hover .role {
+  color: #ff8c00;
+}
+
+/* Animations */
+@keyframes fadeSlideIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInSlow {
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes popIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.8) translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+/* Header */
+#header {
+  position: fixed;
+  background-color: black;
+  top: 0;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  backdrop-filter: saturate(180%) blur(10px);
+  z-index: 1000;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.7);
+}
+
+.header-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 60px;
+}
+
+/* Logo */
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo svg {
+  stroke: #ff8c00;
+  fill: none;
+}
+
+.logo img {
+  height: 40px;
+  width: auto;
+  object-fit: contain;
+}
+
+.logo-text {
+  font-family: 'Poppins', 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-size: 1.5rem;
+  color: #fff;
+  user-select: none;
+}
+
+/* Navigation */
+#nav {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  position: relative;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 30px;
+}
+
+.nav-links li a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 600;
+  font-family: 'Poppins', 'Montserrat', sans-serif;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.nav-links li a:hover,
+.nav-links li a:focus {
+  color: #ff8c00;
+  transform: scale(1.1);
+  outline: none;
+}
+
+/* Search bar */
+.search-bar {
+  padding: 6px 12px;
+  border-radius: 20px;
+  border: 1.5px solid #ff8c00;
+  outline: none;
+  font-size: 0.9rem;
+  width: 150px;
+  transition: box-shadow 0.3s ease;
+}
+
+.search-bar:focus {
+  box-shadow: 0 0 8px #ff8c00;
+}
+
+/* Log In button */
+.login-btn {
+  background-color: #ff8c00;
+  border: none;
+  border-radius: 20px;
+  padding: 6px 14px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.login-btn svg {
+  fill: #fff;
+}
+
+.login-btn:hover,
+.login-btn:focus {
+  background-color: #e67600;
+  transform: scale(1.1);
+  outline: none;
+}
+
+/* Hamburger menu - hidden on desktop */
+#hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 25px;
+  height: 20px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  z-index: 1100;
+}
+
+#hamburger .bar {
+  width: 100%;
+  height: 3px;
+  background-color: #fff;
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+
+/* Hero Section */
+#hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding-top: 80px;
+  text-align: left;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-container {
+  max-width: 700px;
+  padding: 20px;
+  color: #d3d3d3;
+  margin-left: 40px;
+}
